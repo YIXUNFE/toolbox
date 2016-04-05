@@ -25,6 +25,8 @@ electron path/to/toolbo
 
 `electron-packager` 会自动为您打包**全平台**应用程序。
 
+###### 应用打包完成后，需要将 `yixunfe_toolbox.config` 配置文件放在应用程序**同级目录**下以变程序能够加载配置。
+
 <br />
 
 ## 功能说明
