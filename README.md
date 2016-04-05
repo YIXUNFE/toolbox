@@ -3,7 +3,7 @@
 
 ## 使用说明
 
-###### 由于应用程序大小的问题，这里仅释放出源码，大家可以自行打包对应平台的应用程序。
+###### 由于应用程序大小的问题，项目仅释放出源码，大家可以自行打包对应平台的应用程序。
 
 ### 运行盒子
 
@@ -23,7 +23,7 @@ electron path/to/toolbo
 
 [如何打包?](https://github.com/YIXUNFE/blog/issues/62)
 
-`electron-packager` 会自动为您打包全平台应用程序。
+`electron-packager` 会自动为您打包**全平台**应用程序。
 
 <br />
 
@@ -36,6 +36,8 @@ electron path/to/toolbo
 [任务配置与使用？](https://github.com/YIXUNFE/blog/issues/67)
 
 除了一般的构建任务，盒子也可以执行任意的命令行命令，比如`ping`，`start` 等。（操作系统支持的话）
+
+###### 项目中已经配置了一个示例任务。
 
 <br />
 
