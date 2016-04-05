@@ -42,8 +42,12 @@
   .build-panel .info #save {display: none}
   .build-panel .info .loading {display: none}
   .build-panel .console {position: relative; height: 295px; clear: both; width: 619px; top: -1px; border: 1px solid #bbb;}
+  .build-panel .console .show-info {position: absolute; right: 10px; bottom: 10px; z-index: 3}
   .build-panel .console .log-content {height: 295px;}
   .build-panel .console .notification {padding: 5px 0; color: #999}
+  .build-panel .console .show-detail .task-report.fail,
+  .build-panel .console .show-detail .task-report.sys-err,
+  .build-panel .console .show-detail .task-report.success {display: none}
   .build-panel .console .task-report {padding: 0 10px}
   .build-panel .console .task-report.success,
   .build-panel .console .task-report.fail,
