@@ -14,7 +14,7 @@
 安装好 Electron 后，执行如下命令可以运行盒子：
 
 ```
-electron path/to/toolbo
+electron path/to/toolbox
 ```
 
 ### 打包应用程序
