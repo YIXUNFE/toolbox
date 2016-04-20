@@ -1,5 +1,24 @@
 {
-  "name"    : "yixunfe-toolbox",
-  "version" : "0.1.0",
-  "main"    : "main.js"
+  "name": "yixunfe-toolbox",
+  "version": "0.1.0",
+  "main": "main.js",
+  "devDependencies": {
+    "uglify-js": "^2.6.2",
+    "uglifycss": "0.0.20"
+  },
+  "dependencies": {
+    "uglify-js": "^2.6.2",
+    "uglifycss": "^0.0.20"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "electron",
+    "nodejs",
+    "desktop"
+  ],
+  "author": "yixunfe@github.com",
+  "license": "MIT",
+  "description": "yixunfe toolbox"
 }

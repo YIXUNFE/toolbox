@@ -26,8 +26,6 @@ app.on('window-all-closed', function() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
-  var isFocus = true
-  
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
@@ -43,23 +41,17 @@ app.on('ready', function() {
     mainWindow = null
   })
   
-  mainWindow.on('focus', function () {
-    isFocus = true
-  })
-  
-  mainWindow.on('blur', function () {
-    isFocus = false
-  })
-  
   fs.readFile('yixunfe_toolbox.config', 'utf-8', function (err, data) {
-    if (err) {} else {
+    if (err) {
+      
+    } else {
       //console.log(typeof data)
       
       // and load the index.html of the app.
       mainWindow.loadURL('file://' + __dirname + '/index.html')
 
       // Open the DevTools.
-      //mainWindow.webContents.openDevTools()
+      mainWindow.webContents.openDevTools()
       
       mainWindow.webContents.on('did-finish-load', function() {
         mainWindow.webContents.send('config', data)
@@ -73,10 +65,8 @@ app.on('ready', function() {
   　　if(!e) {
 　　　　if (stdout) {
           mainWindow.webContents.send('task-build-done', stdout)
-        } else if (stderr) {
-          mainWindow.webContents.send('task-build-fail', stderr)
         } else {
-          mainWindow.webContents.send('task-build-done', 'mission complete')
+          mainWindow.webContents.send('task-build-fail', stderr)
         }
   　　} else {
         mainWindow.webContents.send('task-build-systemError', e)
@@ -96,15 +86,7 @@ app.on('ready', function() {
     })
   })
   
-  globalShortcut.register('up', function() {
-    isFocus && mainWindow.webContents.send('up')
-  })
-  
-  globalShortcut.register('down', function() {
-    isFocus && mainWindow.webContents.send('down')
-  })
-  
-  app.on('will-quit', function() {
-    globalShortcut.unregisterAll()
+  ipc.on('copy-text', function (e, str) {
+    clipboard.writeText(String(str))
   })
 });

@@ -37,12 +37,15 @@
   .build-panel .info label {padding-left: 10px; display: block; line-height: 20px; font-size: 14px; padding: 10px 0}
   .build-panel .info .key {font-size: 12px; display: inline-block; width: 70px; vertical-align: top; padding-left: 10px;}
   .build-panel .info input,
-  .build-panel .info textarea {border: 1px solid #bbb; padding: 2px; font-size: 14px; width: 210px; vertical-align: top}
+  .build-panel .info textarea {border: 1px solid #bbb; padding: 2px; font-size: 14px; width: 210px; vertical-align: top; resize: none; background: #FBFFED}
+  .build-panel .info input:disabled,
+  .build-panel .info textarea:disabled {background: #ddd}
   .build-panel .info button {padding: 5px 10px; font-size: 14px; margin: 20px 0 0 10px}
   .build-panel .info #save {display: none}
   .build-panel .info .loading {display: none}
-  .build-panel .console {position: relative; height: 295px; clear: both; width: 619px; top: -1px; border: 1px solid #bbb;}
-  .build-panel .console .show-info {position: absolute; right: 10px; bottom: 10px; z-index: 3}
+  .build-panel .console {position: relative; height: 295px; clear: both; width: 619px; top: -1px; border: 1px solid #bbb; background: #FBFFED}
+  .build-panel .console .show-info {position: absolute; right: 10px; bottom: 10px; z-index: 3; padding: 2px 4px;}
+  .build-panel .console .clear {position: absolute; right: 84px; bottom: 10px; z-index: 3; padding: 2px 4px;}
   .build-panel .console .log-content {height: 295px;}
   .build-panel .console .notification {padding: 5px 0; color: #999}
   .build-panel .console .show-detail .task-report.fail,
@@ -55,9 +58,19 @@
   .build-panel .console .task-report.success {color: #41A774}
   .build-panel .console .task-report.fail {color: #EF9B69}
   .build-panel .console .task-report.sys-err {color: red}
+  .build-panel .console .no {color: red; font-style: normal}
   .build-panel .cmScroller {position: relative; width:100%; height: 100%; overflow: hidden}
   .build-panel .scroll-y {position: absolute; top: 0; right: 0; width: 8px; height: 100%; background: #eee}
   .build-panel .scroll-y .bar {background: #888; position: absolute; width: 100%; right: 0}
+  
+  .uglify-panel .select-box {border: 1px solid #bbb; padding: 10px 0; width: 619px;}
+  .uglify-panel .select-box label {cursor: pointer; margin: 0 20px; font-size: 14px; line-height: 16px}
+  .uglify-panel .select-box input {vertical-align: middle}
+  .uglify-panel textarea {resize: none; border: 1px solid #bbb; padding: 10px; width: 621px; height: 480px; box-sizing: border-box; margin-top: -1px; background: #FBFFED}
+  .uglify-panel .btn-box {padding: 5px 0;}
+  .uglify-panel button {padding: 3px 10px; margin: 0 4px 0 0; font-size: 14px; cursor: pointer}
+  .uglify-panel .copy-it {float: right}
+  .uglify-panel .disabled {color: #bbb; cursor: default}
   </style>
 </head>
 <body>
