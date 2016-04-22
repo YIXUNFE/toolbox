@@ -4,15 +4,15 @@
   "main": "main.js",
   "devDependencies": {
     "uglify-js": "^2.6.2",
-    "uglifycss": "0.0.20"
+    "uglifycss": "0.0.20",
+    "electron-packager": "^5.2.1"
   },
   "dependencies": {
     "uglify-js": "^2.6.2",
     "uglifycss": "^0.0.20"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "electron-packager ./ yixunToolBox --all --out ~/Desktop/yixunToolBox --version 0.37.2 --overwrite"
+    "package": "electron-packager ./ YixunToolBox --all --out ~/Desktop/YixunToolBox --version 0.37.2 --overwrite"
   },
   "keywords": [
     "electron",

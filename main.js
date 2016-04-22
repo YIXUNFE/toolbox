@@ -51,7 +51,7 @@ app.on('ready', function() {
       mainWindow.loadURL('file://' + __dirname + '/index.html')
 
       // Open the DevTools.
-      mainWindow.webContents.openDevTools()
+      //mainWindow.webContents.openDevTools()
       
       mainWindow.webContents.on('did-finish-load', function() {
         mainWindow.webContents.send('config', data)
