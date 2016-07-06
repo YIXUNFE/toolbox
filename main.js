@@ -12,7 +12,10 @@ var mainWindow = null,
   fs = require('fs'),
   globalShortcut = require('global-shortcut'),
   clipboard = require('electron').clipboard,
-  ipc = require('electron').ipcMain
+  ipc = require('electron').ipcMain,
+  nativeImage = require('electron').nativeImage,
+  weinre = null,
+  proxy = null
   
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
@@ -30,6 +33,7 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    resizable: false,
     backgroundColor: '#ffffff'
   })
   
@@ -51,7 +55,7 @@ app.on('ready', function() {
       mainWindow.loadURL('file://' + __dirname + '/index.html')
 
       // Open the DevTools.
-      //mainWindow.webContents.openDevTools()
+      mainWindow.webContents.openDevTools()
       
       mainWindow.webContents.on('did-finish-load', function() {
         mainWindow.webContents.send('config', data)
@@ -74,6 +78,54 @@ app.on('ready', function() {
     })
   })
   
+  ipc.on('run-weinre', function (e, d) {
+    var processor = require('child_process'),
+      fork = processor.fork
+    weinre = fork('./node_modules/weinre/weinre', ['--boundHost', d.ip, '--httpPort', d.port], {cwd: __dirname})
+    mainWindow.webContents.send('weinre-on')
+  })
+  
+  ipc.on('shutdown-weinre', function (e, d) {
+    //console.log(weinre.pid)
+    if (weinre) {weinre.kill()}
+    //console.log(weinre.pid)
+    //if (weinre) {
+    //  require('child_process').exec('taskkill -PID ' + weinre.pid + '-F')
+    //}
+    mainWindow.webContents.send('weinre-off')
+  })
+  
+  ipc.on('open-browser', function (e, d) {
+    var processor = require('child_process'),
+      exec = processor.exec
+    exec('explorer ' + d)
+  })
+  
+  ipc.on('open-proxy', function (e, d) {
+    var processor = require('child_process'),
+      fork = processor.fork
+    proxy = fork('./node_modules/proxy', [d], {cwd: __dirname})
+    mainWindow.webContents.send('proxy-on')
+  })
+  
+  ipc.on('shutdown-proxy', function (e, d) {
+    if (proxy) {proxy.kill()}
+    mainWindow.webContents.send('proxy-off')
+  })
+  
+  ipc.on('open-proxy-force', function (e, d) {
+    var processor = require('child_process'),
+      fork = processor.fork
+    if (proxy) {proxy.kill()}
+    proxy = fork('./node_modules/proxy', [d], {cwd: __dirname})
+    mainWindow.webContents.send('proxy-on')
+  })
+  
+  ipc.on('trace-ip', function () {
+    var ip = require('ip')
+    mainWindow.webContents.send('trace-ip', ip.get())
+  })
+  
   ipc.on('write-config', function (e, str) {
     fs.open('yixunfe_toolbox.config', 'w', function  (err, fd) {
       fs.write(fd, str, function (err, data) {
@@ -88,5 +140,14 @@ app.on('ready', function() {
   
   ipc.on('copy-text', function (e, str) {
     clipboard.writeText(String(str))
+  })
+  
+  ipc.on('save-qrcode', function (err, base64Str) {
+    dialog.showSaveDialog({title: '请选择保存路径', defaultPath: 'C:/', filters: [
+      { name: 'Images', extensions: ['png'] }
+    ]}, function (p) {
+      var img = nativeImage.createFromDataURL(base64Str)
+      fs.writeFile(p, img.toPng())
+    })
   })
 });

@@ -7,6 +7,7 @@
   html, body {background: #fff; height: 100%}
   * {padding: 0; margin: 0; outline: 0}
   ul, li {list-style: none}
+  .action {cursor: pointer}
   .box {border: 1px solid #bbb; width: 100%; box-sizing: border-box; height: 100%; overflow: hidden}
   .left-bar {border-right: 1px solid #bbb; position: relative; left: 0px; margin-left: 0px; width: 150px; float: left; height: 100%; transition: margin-left 0.3s ease-out 0s}
   .left-bar.close {margin-left: -150px}
@@ -72,14 +73,49 @@
   .uglify-panel .copy-it {float: right}
   .uglify-panel .disabled {color: #bbb; cursor: default}
   
+  .mobile-debug-panel .mobile-debug-box {border: 1px solid #bbb; width: 619px; position: relative; overflow: hidden}
+  .mobile-debug-panel .banner {padding: 2px 0}
+  .mobile-debug-panel label {cursor: pointer; margin: 0 10px 0 0; font-size: 16px; line-height: 16px}
+  .mobile-debug-panel input {vertical-align: middle; border: 1px solid #bbb; padding: 2px; font-size: 16px; width: 80px; resize: none; background: #FBFFED}
+  .mobile-debug-panel #port-ipt {width: 40px}
+  .mobile-debug-panel .open-btn {color: #fff; background: red; border: 1px solid #faa; border-radius: 2px; padding: 3px 5px}
+  .mobile-debug-panel .open-btn:active {background: #faa;}
+  .mobile-debug-panel .open-btn::after {content: ' OFF'}
+  .mobile-debug-panel .open-btn.on {color: #fff; background: green; border: 1px solid green;}
+  .mobile-debug-panel .open-btn.on::after {content: ' ON'}
+  .mobile-debug-panel .proxy-btn {color: #fff; background: red; border: 1px solid #faa; border-radius: 2px; padding: 3px 5px}
+  .mobile-debug-panel .proxy-btn:active {background: #faa;}
+  .mobile-debug-panel .proxy-btn::after {content: ' OFF'}
+  .mobile-debug-panel .proxy-btn.on {color: #fff; background: green; border: 1px solid green;}
+  .mobile-debug-panel .proxy-btn.on::after {content: ' ON'}
+  .mobile-debug-panel button {vertical-align: middle; padding: 2px 5px; font-size: 14px; margin: 0 10px 0 0}
+  .mobile-debug-panel .debug-frame {width: 619px; height: 519px; border: 0 none}
+  .mobile-debug-panel .proxy-box {position: absolute; z-index: 2; right: -1px; bottom: -273px; width: 200px; height: 300px; border: 1px solid #bbb; background: #fff; transition: bottom .3s ease-out}
+  .mobile-debug-panel .proxy-box.open {bottom: -1px;}
+  .mobile-debug-panel .proxy-box .proxy-info {position: relative; height: 272px; line-height: 1.4em}
+  .mobile-debug-panel .proxy-box .btn-box {padding: 2px; border-bottom: 1px solid #bbb}
+  .mobile-debug-panel .proxy-box .modify-proxy {font-style: normal; float: right; font-size: 12px; color: #0071e7; margin: 5px 5px 0 0; cursor: pointer}
+  .mobile-debug-panel .proxy-box .tip {padding: 2px; font-size: 12px}
+  .mobile-debug-panel .proxy-box .tip i {font-style: normal; color: green}
+  .mobile-debug-panel .proxy-box dl {padding: 2px; overflow: hidden; font-size: 12px;}
+  .mobile-debug-panel .proxy-box dt {clear: both; float: left; width: 50px}
+  .mobile-debug-panel .proxy-box dd {float: left}
+  .mobile-debug-panel #proxy-port {width: 80px; padding: 3px 1px; font-size: 12px}
+  .mobile-debug-panel .save-proxy-btn {float: right; margin-right: 0px}
+  .mobile-debug-panel .proxy-box .proxy-info .btn-box {position: absolute; bottom: 0; width: 100%; left: 0; overflow: hidden; border-bottom: 0 none; border-top: 1px solid #bbb; box-sizing: border-box}
+  
   .other-panel .other-box {width: 621px;}
   .other-panel .item {border: 1px solid #bbb; border-top: 5px solid #bbb; margin-bottom: 5px; padding-bottom: 5px;}
   .other-panel .item .title {background: #fff; cursor: pointer; padding: 5px; font-size: 14px; text-indent: 5px; border-bottom: 1px solid #bbb}
-  .other-panel .string-input {border: 0 none; border-bottom: 1px solid #bbb; padding: 5px; font-size: 14px; width: 550px; vertical-align: top; resize: none; background: #FBFFED}
-  .other-panel .refresh-input {border: 0 none; border-left: 1px solid #bbb; border-bottom: 1px solid #bbb; height: 27px; width: 69px; font-size: 14px; cursor: pointer}
+  .other-panel .string-input {border: 0 none; border-bottom: 1px solid #bbb; padding: 5px; font-size: 14px; width: 481px; vertical-align: top; resize: none; background: #FBFFED}
+  .other-panel .refresh-input,
+  .other-panel .save-qrcode {border: 0 none; border-left: 1px solid #bbb; border-bottom: 1px solid #bbb; height: 27px; width: 69px; font-size: 14px; cursor: pointer}
+  .other-panel .refresh-input:active,
+  .other-panel .save-qrcode:active {background: #bbb}
   .other-panel .qrcode {margin: 5px; height: 320px; line-height: 320px; text-align: center}
   .other-panel .qrcode canvas {display: inline; vertical-align: middle}
   .other-panel .img-input {margin: 5px; cursor: pointer}
+  .other-panel .copy-base64 {float: right; height: 21px; width: 69px; font-size: 14px; cursor: pointer; margin: 5px 5px 0 0}
   .other-panel .base64-output {display: block; margin: 0 5px; width: 610px; height: 320px; line-height: 1.4em; resize: none; background: #FBFFED}
   .other-panel .item .sub-box {display: none;}
   .other-panel .item.current {background: #fff}

@@ -9,10 +9,11 @@
   },
   "dependencies": {
     "uglify-js": "^2.6.2",
-    "uglifycss": "^0.0.20"
+    "uglifycss": "^0.0.20",
+    "weinre": "^2.0.0-pre-I0Z7U9OV"
   },
   "scripts": {
-    "package": "electron-packager ./ YixunToolBox --all --out ~/Desktop/YixunToolBox --version 0.37.2 --overwrite"
+    "package": "electron-packager ./ yixunToolBox --all --out ~/Desktop/yixunToolBox --version 0.37.2 --overwrite"
   },
   "keywords": [
     "electron",
