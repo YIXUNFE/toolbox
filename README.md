@@ -55,7 +55,17 @@ electron path/to/toolbox
 
 支持将 js、css 文件内容进行压缩并在界面提供复制按钮。
 
------------------
+<br />
+
+### 移动端调试
+
+[查看说明](https://github.com/YIXUNFE/toolbox/blob/master/mobile-debug.md)
+
+![示例](https://cloud.githubusercontent.com/assets/13482086/16608611/f51fd100-437f-11e6-8b94-ab9b61f7222f.gif)
+
+###### 调试示例
+
+<br />
 
 ### 辅助功能
 
